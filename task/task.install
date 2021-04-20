@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dbtng_example module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup task
+ */
+function task_schema() {
+  $schema['custom_table'] = [
+    'description' => 'Stores example person entries for demonstration purposes.',
+    'fields' => [
+      'pid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique person ID.',
+      ],
+      'uid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Creator user's {users}.uid",
+      ],
+      'title' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Title of the node.',
+      ],
+     'nid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'unsigned' => TRUE,
+      ],
+       'created_date' => [
+            'type' => 'datetime',
+            'mysql_type' => 'datetime',
+            'not null' => TRUE,
+          ],
+    ],
+    'primary key' => ['pid'],
+  ];
+
+  return $schema;
+}

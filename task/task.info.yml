@@ -1,0 +1,7 @@
+name: Task Example
+type: module
+description: 'Demonstrates how to use the database API, Entity Api and logging Api'
+package: custom
+core: 8.x
+
+

@@ -1,0 +1,6 @@
+services:
+  task.node.insert:
+    class: Drupal\task\EventSubscriber\NodeInsertDemoSubscriber
+    arguments: [ '@database' ,'@logger.factory' ,'@current_user']
+    tags:
+      - { name: 'event_subscriber' }
